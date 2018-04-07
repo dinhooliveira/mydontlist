@@ -12,6 +12,13 @@ class mylist {
     {
       
         $this->list = str_replace("/mydontlist/","",$this->url);
+
+        $list = substr($this->list, strlen($this->list)-1, strlen($this->list));
+    
+        if($list=='/')
+        {
+            $this->list= substr($this->list, 0, strlen($this->list)-1);
+        }
         
         $sql="
           SELECT 
@@ -51,7 +58,15 @@ class mylist {
     {
 
         $valores = explode('/',$this->list);
-        $title = array_pop($valores);
+
+        if(count($valores) > 1)
+        {
+            $title = array_pop($valores);
+
+        } else {
+           $title =$this->list;
+        }
+    
 
         $sql="
         INSERT INTO mylist (url,title)

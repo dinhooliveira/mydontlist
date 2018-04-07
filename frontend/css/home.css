@@ -12,6 +12,13 @@ h1{
    margin:10%;
 }
 
+#title{
+    background:#0c0c0c;
+    color:#fff;
+    margin:0px;
+    padding:2%;
+}
+
 .form-go{
     width:90%;
     margin:auto;
@@ -24,7 +31,7 @@ input,button{
     font: sans-serif bold 30px;
 }
 button{
-    width:50px;
+    width:auto;
     background: #020202;
     color:#fff;
 }
@@ -32,7 +39,27 @@ button{
 #filhos{
     padding:1%;
     margin:0px;
-    width:200px;
+    width:10%;
     height:100%;
     background: #aaaaaa;
+    float:left;
+}
+
+#pai{
+    width:80%;
+    float:left;
+}
+
+ul {
+    list-style: none; /* Remove list bullets */
+    padding: 0;
+    margin: 0;
+}
+
+li { 
+    padding-left: 16px; 
+}
+
+li a {
+    text-decoration: none;
 }
