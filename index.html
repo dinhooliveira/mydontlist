@@ -8,7 +8,7 @@
        <script type="text/javascript" src="http://localhost/mydontlist/frontend/js/app.js"></script>
     </head>
 
-    <body ng-controller="mydontlistListCtl">
+    <body>
 
         <div class="home">
 
@@ -35,8 +35,11 @@
                 
                 <div id="pai">
                    <form>
-                       <input type="text"><button type="button">adicionar</button>
+                       <input type="hidden" id="id_pai">
+                       <input type="text" id="valor_lista" ><button type="button" id="adicionar">adicionar</button>
                    </form>
+
+                    <div id="lista"></div>
                 </div>
 
         </div>
