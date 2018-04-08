@@ -19,6 +19,7 @@ $(document).ready(function(){
         let item = $("#valor_lista").val();
         let id_pai = $("#id_pai").val();
 
+        if(item==false || item=='') return;
 
         var request = $.ajax({
             url: url+"backend/items.php",
@@ -28,9 +29,12 @@ $(document).ready(function(){
         });
 
         request.done(function( dados ) {
+
             $("#valor_lista").val('');
-           myitems = (dados.data.data !==null) ? dados.data.data : [];
-           listarItems();
+            if(dados.success==false) return;
+
+            myitems = (dados.data.data !==null) ? dados.data.data : [];
+            listarItems();
 
         });
 
@@ -143,13 +147,11 @@ $(document).ready(function(){
 
         for(i;i<myitems.length;i++)
         {
-           if(i==0) lista="<ul>";
-           lista+= "<li>" + myitems[i].item + "<li>";
-           if(i==myitems.length) lista="</ul>";
-
+           if(i==0) lista="</ul>";
+           lista+= "<li>" + myitems[i].item + "<button class='delete'>x</button></li>";
+           if(i==myitems.length) lista+="</ul>";
 
         }
-
 
         $("#lista").html(lista);
     }

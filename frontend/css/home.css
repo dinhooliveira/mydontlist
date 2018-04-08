@@ -34,6 +34,7 @@ button{
     width:auto;
     background: #020202;
     color:#fff;
+    border:none;
 }
 
 #filhos{
@@ -50,16 +51,45 @@ button{
     float:left;
 }
 
-ul {
+#filhos ul {
     list-style: none; /* Remove list bullets */
     padding: 0;
     margin: 0;
 }
 
-li { 
+#filhos li { 
     padding-left: 16px; 
 }
 
-li a {
+#filhos li a {
     text-decoration: none;
 }
+
+
+
+#lista ul {
+    list-style: none; /* Remove list bullets */
+    padding: 0;
+    margin: 0;
+    width: 500px;
+    background:#d1a926;
+}
+
+#lista li { 
+    padding-left: 16px; 
+}
+
+#lista li a {
+    
+    text-decoration: none;
+
+}
+
+
+.delete {
+    background:red;
+    color:white;
+    width:auto;
+    height:auto;
+}
+

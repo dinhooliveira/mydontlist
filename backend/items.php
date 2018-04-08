@@ -2,7 +2,7 @@
  require_once('conexao.php');
  require_once('mydontlist.php');
  
- if(isset($_POST['item']) )
+ if(isset($_POST['item']) && $_POST['item']!='')
  {
      //teste de conexao
      $lista = new mylist();
