@@ -171,6 +171,39 @@ class mylist {
         }
 
     }
+
+
+    public function update_item($id_item,$item_pai,$status,$texto=false)
+    {
+        $sql ="
+            UPDATE SET   mylistdetail
+            *
+            FROM
+                mylistdetail
+            WHERE
+            mylist_id = {$id}
+            
+        ";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if($result)
+        {
+            $dados['success'] = true;
+            $dados['message'] = "Lista encontrada!";
+            $dados['data']= $result;
+
+            return $dados;
+        
+        }else{
+
+            $dados['success'] = false;
+            $dados['message'] = "Não possui item!";
+        }
+
+    }
 }
 
 

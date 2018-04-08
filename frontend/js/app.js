@@ -2,6 +2,29 @@
 var url = location.protocol + '//'+location.hostname+'/mydontlist/';
 var myitems = [];
 
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("li", ev.target.id);
+}
+
+function dropAfazer(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("li");
+    ev.target.appendChild(document.getElementById(data));
+}
+
+function dropFeito(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("li");
+
+    ev.target.appendChild(document.getElementById(data));
+}
+
+
 $(document).ready(function(){
 
    $('#url').html(url);
@@ -125,14 +148,12 @@ $(document).ready(function(){
             
             for(i;i<filhos.length;i++)
             {   
-                if(i==0) lista="<ul>";
+               
                 lista+="<li><a href='"+url+filhos[i].url+"'>"+filhos[i].title+"<a></li>";
-                if(i==filhos.length) lista="</ul>";
             }
 
-            lista+="</ul>";
 
-            $("#filhos").html(lista);
+            $("#filhos ul").html(lista);
             
         });
 
@@ -143,22 +164,35 @@ $(document).ready(function(){
     var listarItems = function()
     {
         let i =0;
-        let lista;
+        let lista =[];
+        let listaFinalizada = [];
 
         for(i;i<myitems.length;i++)
         {
-           if(i==0) lista="</ul>";
-           lista+= "<li>" + myitems[i].item + "<button class='delete'>x</button></li>";
-           if(i==myitems.length) lista+="</ul>";
+           if(myitems[i].status==1)
+                lista.push("<li draggable='true' ondragstart='drag(event)' id='"+myitems[i].id+"'>" + myitems[i].item + "<button class='delete'>x</button></li>");
+        
+           if(myitems[i].status==2)
+              listaFinalizada.push("<li draggable='true' ondragstart='drag(event)' id='"+myitems[i].id+"'>" + myitems[i].item + "<button class='delete'>x</button></li>");
 
         }
 
-        $("#lista").html(lista);
+        $("#lista ul").html(lista.join(''));
+        $("#listaFinalizados ul").html(listaFinalizada.join(''));
     }
 
 
+    var atualizarSituacao = function(id_item,status){
+         
+        var id_pai= $('#id_pai').val();
 
+        console.log(id_pai,id_item,status);
+    };
 
     verificaUrl();
 
 });
+
+
+
+

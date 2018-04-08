@@ -32,13 +32,22 @@
                 <div id="filhos">
                 </div>
                 
-                <div id="pai">
+                <div id="pai">                    
                    <form>
-                       <input type="hidden" id="id_pai" required>
-                       <input type="text" id="valor_lista" ><button type="button" id="adicionar">Adicionar</button>
+                       <input type="hidden" id="id_pai">
+                       <button type="button" id="adicionar">Adicionar</button>
+                       <input type="text" id="valor_lista" >
                    </form>
 
-                    <div id="lista"></div>
+                    <div id="lista">
+                        <ul ondrop="dropAfazer(event)" ondragover="allowDrop(event)">
+                        </ul>
+                    </div>
+
+                    <div id="listaFinalizados">                                  
+                        <ul ondrop="dropFeito(event)" ondragover="allowDrop(event)">
+                        </ul>
+                    </div>
                 </div>
 
         </div>

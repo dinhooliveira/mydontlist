@@ -38,8 +38,8 @@ button{
 }
 
 #filhos{
-    padding:1%;
-    margin:0px;
+    padding-right:8%;
+    margin:0;
     width:10%;
     height:100%;
     background: #aaaaaa;
@@ -48,35 +48,44 @@ button{
 
 #pai{
     width:80%;
-    float:left;
+   
 }
 
 #filhos ul {
     list-style: none; /* Remove list bullets */
     padding: 0;
     margin: 0;
+    float:left;
+    text-align: left;
 }
 
 #filhos li { 
-    padding-left: 16px; 
+    padding-left: 16px;
 }
 
 #filhos li a {
     text-decoration: none;
+    float: left;
+    padding: 5%;
 }
 
 
 
 #lista ul {
     list-style: none; /* Remove list bullets */
-    padding: 0;
-    margin: 0;
-    width: 500px;
-    background:#d1a926;
+    padding: 5%;
+    margin: 10px;
+    background:#16a2f3;
+    width: 150px;
+    min-height: 200px;
+    float:left;
 }
 
 #lista li { 
-    padding-left: 16px; 
+    margin:5px;
+    padding:8px;
+    background: #251a8a;
+    color:#fff;
 }
 
 #lista li a {
@@ -84,6 +93,53 @@ button{
     text-decoration: none;
 
 }
+
+
+#lista li button{
+    float:left;
+}
+
+
+
+
+
+#listaFinalizados ul {
+    list-style: none; /* Remove list bullets */
+    padding: 5%;
+    margin: 10px;
+    background:#8fe7ca;
+    width: 150px;
+    min-height: 200px;
+    float:left;
+}
+
+#listaFinalizados li { 
+    margin:5px;
+    padding:8px;
+    background: #251a8a;
+    color:#fff;
+}
+
+#listaFinalizados li a {
+    
+    text-decoration: none;
+
+}
+
+
+#listaFinalizados li button{
+    float:left;
+}
+
+
+
+.delete {
+    background:red;
+    color:white;
+    width:auto;
+    height:auto;
+}
+
 
 
 .delete {
