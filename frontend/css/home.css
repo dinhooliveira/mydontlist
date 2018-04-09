@@ -6,6 +6,7 @@ body{
 
 h1{
   text-align:center;
+  color: #251a8a;
 }
 
 .title{
@@ -13,7 +14,7 @@ h1{
 }
 
 #title{
-    background:#0c0c0c;
+    background:#251a8a;
     color:#fff;
     margin:0px;
     padding:2%;
@@ -28,11 +29,12 @@ h1{
 input,button{
     height:50px;
     margin:2px;
-    font: sans-serif bold 30px;
+    font-size:20px;
+
 }
 button{
     width:auto;
-    background: #020202;
+    background: #251a8a;
     color:#fff;
     border:none;
 }
@@ -42,7 +44,7 @@ button{
     margin:0;
     width:10%;
     height:100%;
-    background: #aaaaaa;
+    background: #83808041;
     float:left;
 }
 
@@ -55,28 +57,38 @@ button{
     list-style: none; /* Remove list bullets */
     padding: 0;
     margin: 0;
-    float:left;
     text-align: left;
 }
 
 #filhos li { 
-    padding-left: 16px;
+    font-size:15px;
+    
 }
 
 #filhos li a {
     text-decoration: none;
-    float: left;
-    padding: 5%;
+    color:#251a8a;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size:20px;
+    display: block;
+}
+
+#filhos li a:hover {
+
+    color:red;
+  
+    
 }
 
 
 
 #lista ul {
     list-style: none; /* Remove list bullets */
-    padding: 5%;
+    padding: 3%;
     margin: 10px;
     background:#16a2f3;
-    width: 150px;
+    width: 30%;
     min-height: 200px;
     float:left;
 }
@@ -95,20 +107,16 @@ button{
 }
 
 
-#lista li button{
-    float:left;
-}
-
 
 
 
 
 #listaFinalizados ul {
     list-style: none; /* Remove list bullets */
-    padding: 5%;
+    padding: 3%;
     margin: 10px;
     background:#8fe7ca;
-    width: 150px;
+    width: 30%;
     min-height: 200px;
     float:left;
 }
@@ -117,7 +125,14 @@ button{
     margin:5px;
     padding:8px;
     background: #251a8a;
-    color:#fff;
+}
+
+.inputlista {
+   background:#251a8a;
+   color:#fff;
+   width:80%;
+   border:none;
+
 }
 
 #listaFinalizados li a {
@@ -126,26 +141,56 @@ button{
 
 }
 
-
-#listaFinalizados li button{
-    float:left;
-}
-
-
-
 .delete {
     background:red;
     color:white;
-    width:auto;
     height:auto;
+    float:right;
+    width:25px;
+    height:25px;
+    border-radius:40px;
+}
+
+
+form{
+    margin:15px;
+    text-align:center;
 }
 
 
 
-.delete {
-    background:red;
-    color:white;
-    width:auto;
-    height:auto;
-}
 
+
+@media only screen and (max-width:700px) {
+
+
+    #filhos{
+        width:100%;
+        height:auto;
+        float:left;
+        margin-bottom: 10px;
+    }
+    
+
+    #filhos li a{
+        display: inline-block;
+        font-size:15px;
+    }
+    
+    #lista ul {
+        width: 85%;
+        margin-left:15%;
+    }
+
+
+    #listaFinalizados ul {
+        width: 85%;
+        margin-left:15%;
+       
+    }
+    
+    
+
+    
+    
+}

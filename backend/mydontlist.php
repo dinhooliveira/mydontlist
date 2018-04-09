@@ -74,7 +74,7 @@ class mylist {
         ";
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
     }
 
     public function filho()
@@ -173,34 +173,37 @@ class mylist {
     }
 
 
-    public function update_item($id_item,$item_pai,$status,$texto=false)
+    public function update_item($id_item,$status=false,$texto=false)
     {
-        $sql ="
-            UPDATE SET   mylistdetail
-            *
-            FROM
-                mylistdetail
-            WHERE
-            mylist_id = {$id}
-            
-        ";
-
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        if($result)
-        {
-            $dados['success'] = true;
-            $dados['message'] = "Lista encontrada!";
-            $dados['data']= $result;
-
-            return $dados;
+         
+        try{
         
-        }else{
+            if($texto && $status==false){
+                $sql ="UPDATE mylistdetail SET item=:texto WHERE id=:id_item ";
+                $stmt = $this->conexao->prepare($sql);
+                $stmt->bindparam(':texto',$texto,PDO::PARAM_STR);
+                $stmt->bindparam(':id_item',$id_item,PDO::PARAM_INT);
+                $stmt->execute();
+            }
+    
+            if($status && $texto==false ){
 
+                $sql ='UPDATE mylistdetail SET status=:newstatus WHERE id=:id_item ';
+                $stmt = $this->conexao->prepare($sql);
+                $stmt->bindparam(':newstatus',$status,PDO::PARAM_INT);
+                $stmt->bindparam(':id_item',$id_item,PDO::PARAM_INT);
+                $stmt->execute();
+            }
+            
+            $dados['success'] = true;
+            $dados['message'] = "Atualizado com sucesso!";
+            echo json_encode($dados);
+          
+        }catch(Exception $exc){
             $dados['success'] = false;
-            $dados['message'] = "Não possui item!";
+            $dados['message'] = $exc->getMessage();
+            echo json_encode($dados);
+
         }
 
     }
