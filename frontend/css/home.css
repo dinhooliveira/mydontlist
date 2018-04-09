@@ -7,6 +7,7 @@ body{
 h1{
   text-align:center;
   color: #251a8a;
+  font-size:50px;
 }
 
 .title{
@@ -98,6 +99,7 @@ button{
     padding:8px;
     background: #251a8a;
     color:#fff;
+    border-radius:5px;
 }
 
 #lista li a {
@@ -125,6 +127,8 @@ button{
     margin:5px;
     padding:8px;
     background: #251a8a;
+    color:#fff;
+    border-radius:5px;
 }
 
 .inputlista {
